@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/Common/http';
 import { Observable } from 'rxjs';
+import { Data } from 'Data';
 
 
 @Component({
@@ -10,23 +11,25 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   title = 'my-angular-app';
-  User : Object;
+  User : Data[];
 
   constructor(private http : HttpClient){  }
 
   ngOnInit(){ 
     this.getUser();
+    
    }
 
-  getUser() : void{
+  getUser()  {
 
-    this.http.get<Observable<Object>>('https://datausa.io/api/data?drilldowns=Nation&measures=Population').subscribe(response =>{
+    this.http.get<Data[]>('https://datausa.io/api/data?drilldowns=Nation&measures=Population').
+      subscribe(response =>{
       this.User = response;}
       ,error=>{
-      console.log(error);
-    })
-  }
+      console.log(error);}
+      );
 
+  }
 
 
 }
