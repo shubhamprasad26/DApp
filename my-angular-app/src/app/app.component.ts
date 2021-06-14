@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   getUser()  {
 
-    this.http.get<Data[]>('https://datausa.io/api/data?drilldowns=Nation&measures=Population').
+    this.http.get<Data[]>('https://jsonplaceholder.typicode.com/posts').
       subscribe(response =>{
       this.User = response;}
       ,error=>{

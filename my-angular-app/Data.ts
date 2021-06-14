@@ -1,6 +1,8 @@
 export interface Data
 {
-     Navition : string ;
-     Year : Number;
+     UserId : Number ;
+     //id : Number;
+     body : string;
+     title : string;
 
 }
